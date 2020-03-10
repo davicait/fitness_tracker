@@ -4,24 +4,6 @@ const Workout = require("../models/workout.js");
 const db = require("../models")
 
 router.post("/api/workouts", (req, res) => {
-    // console.log("back end " + body);
-    // console.log("back end 1" + {body});
-    // console.log("back end2 " + JSON.stringify(body));
-    // console.log(req);
-    //let testVar = JSON.stringify(req.body);
-    //let testVar2 = JSON.parse(testVar);
-    //console.log("1: " +testVar)
-    //console.log("2: " +testVar2)
-    // let exercises = [
-    //   {type: req.body.type},
-    //   {name: req.body.name},
-    //   {weight: req.body.weight},
-    //   {sets: req.body.sets},
-    //   {reps: req.body.reps},
-    //   {duration: req.body.duration}
-    // ];
-    // let newWork = new db.Workout(exercises);
-    // console.log(newWork)
     db.Workout.create({})
         .then(dbWorkout => {
             res.json(dbWorkout);
@@ -33,16 +15,12 @@ router.post("/api/workouts", (req, res) => {
 
 router.put('/api/workouts/:id', (req, res) => {
 
-    //console.log(req.params);
-    //console.log (req.body);
     const id = req.params.id;
     const body = req.body;
 
     const newWorkout = {
-        //   //id,
-        //   body
+       
     }
-    //console.log(newWorkout)
     Workout.findByIdAndUpdate(
         id, {
             $push: {
